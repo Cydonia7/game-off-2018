@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://HUD.gd" type="Script" id=1]
 [ext_resource path="res://images/coins.png" type="Texture" id=2]
@@ -14,6 +14,10 @@
 [ext_resource path="res://NextWaveButton.gd" type="Script" id=12]
 [ext_resource path="res://ShopButton.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Shop.tscn" type="PackedScene" id=14]
+[ext_resource path="res://BuyUpgradeButton.tscn" type="PackedScene" id=15]
+[ext_resource path="res://BuyUpgradeButton.gd" type="Script" id=16]
+[ext_resource path="res://images/two_launcher.png" type="Texture" id=17]
+[ext_resource path="res://images/three_launcher.png" type="Texture" id=18]
 
 [sub_resource type="StyleBoxFlat" id=1]
 
@@ -174,8 +178,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Cannons" type="Node2D" parent="." index="5"]
 
-editor/display_folded = true
-
 [node name="BuyButton" parent="Cannons" index="0" instance=ExtResource( 4 )]
 
 margin_left = 200.0
@@ -213,5 +215,21 @@ _sections_unfolded = [ "Rect" ]
 [node name="ShopButton" parent="." index="7" instance=ExtResource( 13 )]
 
 [node name="Shop" parent="." index="8" instance=ExtResource( 14 )]
+
+[node name="BuyButton" parent="Shop" index="2" instance=ExtResource( 15 )]
+
+script = ExtResource( 16 )
+texture = ExtResource( 17 )
+upgrade = "two_missiles"
+cost = 800
+
+[node name="BuyButton2" parent="Shop" index="3" instance=ExtResource( 15 )]
+
+margin_left = 80.0
+margin_right = 120.0
+script = ExtResource( 16 )
+texture = ExtResource( 18 )
+upgrade = "three_missiles"
+cost = 1500
 
 

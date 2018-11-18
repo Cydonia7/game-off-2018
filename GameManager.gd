@@ -1,8 +1,9 @@
 extends Node
 
-var coins = 0
+var coins = 3000
 var lives = 3
-var wave = 1
+var wave = 7
+var upgrades = []
 
 func _enter_tree():
 	EventListener.add_listener(self, 'next_wave')
@@ -15,6 +16,13 @@ func on_monster_killed(reward):
 	coins += reward
 	EventListener.trigger('money_changed', coins)
 	check_if_wave_finished()
+
+func add_upgrade(upgrade):
+	upgrades.append(upgrade)
+	EventListener.trigger('upgrade_bought', upgrade)
+
+func has_upgrade(upgrade):
+	return upgrades.has(upgrade)
 
 func on_monster_missed():
 	lives -= 1

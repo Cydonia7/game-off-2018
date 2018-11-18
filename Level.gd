@@ -52,3 +52,6 @@ func on_wave_started(wave):
 func on_wave_finished(wave):
 	for child in get_node('Cannons').get_children():
 		child.queue_free()
+	
+	if wave >= waves.size():
+		get_tree().change_scene("res://GameWon.tscn")

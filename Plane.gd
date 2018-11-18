@@ -2,7 +2,6 @@ extends Sprite
 
 export var fireInterval = 0.5
 export var bulletSpeed = 300.0
-export var missiles = 1
 
 var screensize
 var time = 0.0
@@ -32,11 +31,22 @@ func _process(delta):
 			fire_all()
 
 func fire_all():
+	var missiles = get_number_of_missiles()
+	
 	if missiles != 2:
 		fire('center')
 	if missiles != 1:
 		fire('left')
 		fire('right')
+
+func get_number_of_missiles():
+	if get_game_manager().has_upgrade('three_missiles'):
+		return 3
+	
+	if get_game_manager().has_upgrade('two_missiles'):
+		return 2
+	
+	return 1
 
 func fire(spawn):
 	if spawn == 'left':
@@ -52,3 +62,6 @@ func fire(spawn):
 	bullet.life = 10.0
 	bullet.velocity = Vector2(0, -1) * bulletSpeed
 	get_parent().add_child(bullet)
+
+func get_game_manager():
+	return get_tree().get_nodes_in_group("game_manager")[0]
