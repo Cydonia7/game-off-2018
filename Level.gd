@@ -22,8 +22,8 @@ var waves = [
 		'mobs': ['lunique', 'poulpi', 'medusar', 'poulpi'],
 	},
 	{
-		'number_of_groups': 8,
-		'mobs_per_group': 4,
+		'number_of_groups': 10,
+		'mobs_per_group': 5,
 		'mobs': ['lunique', 'medusar', 'Mr. citrus', 'poulpi'],
 	},
 	{
@@ -35,6 +35,21 @@ var waves = [
 		'number_of_groups': 12,
 		'mobs_per_group': 5,
 		'mobs': ['lunique', 'Mr. citrus', 'libeluliste', 'menthe religieuse'],
+	},
+	{
+		'number_of_groups': 12,
+		'mobs_per_group': 5,
+		'mobs': ['libeluliste', 'menthe religieuse', 'roubi on kenoby'],
+	},
+	{
+		'number_of_groups': 15,
+		'mobs_per_group': 5,
+		'mobs': ['menthe religieuse', 'roubi on kenoby', 'grenoux'],
+	},
+	{
+		'number_of_groups': 18,
+		'mobs_per_group': 5,
+		'mobs': ['roubi on kenoby', 'grenoux', 'florax'],
 	},
 ]
 

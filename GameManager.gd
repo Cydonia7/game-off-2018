@@ -1,8 +1,8 @@
 extends Node
 
-var coins = 3000
+var coins = 0
 var lives = 3
-var wave = 7
+var wave = 1
 var upgrades = []
 
 func _enter_tree():
