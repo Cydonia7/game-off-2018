@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Level.gd" type="Script" id=1]
+[ext_resource path="res://images/niveau 1.png" type="Texture" id=2]
+[ext_resource path="res://images/village sans prétentions.png" type="Texture" id=3]
+[ext_resource path="res://GameManager.gd" type="Script" id=4]
+[ext_resource path="res://Plane.tscn" type="PackedScene" id=5]
+
+[sub_resource type="Curve2D" id=1]
+
+bake_interval = 5.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 120.004, -41.6309, 0, 0, 0, 0, 151.737, 13.4851, 0, 0, 0, 0, 220.215, 35.1974, 0, 0, 0, 0, 268.65, 48.5589, 0, 0, 0, 0, 318.755, 61.9203, 0, 0, 0, 0, 365.52, 80.2923, 0, 0, 0, 0, 392.243, 107.015, 0, 0, 0, 0, 370.531, 143.759, 0, 0, 0, 0, 338.797, 168.812, 0, 0, 0, 0, 307.064, 188.854, 0, 0, 0, 0, 273.66, 198.875, 0, 0, 0, 0, 223.555, 222.258, 0, 0, 0, 0, 181.8, 238.96, 0, 0, 0, 0, 131.695, 262.342, 0, 0, 0, 0, 113.323, 290.735, 0, 0, 0, 0, 143.386, 319.128, 0, 0, 0, 0, 185.141, 330.82, 0, 0, 0, 0, 226.895, 340.841, 0, 0, 0, 0, 282.011, 342.511, 0, 0, 0, 0, 337.127, 340.841, 0, 0, 0, 0, 375.541, 335.83, 0, 0, 0, 0, 395.584, 314.118, 0, 0, 0, 0, 420.636, 277.374, 0, 0, 0, 0, 455.71, 230.609, 0, 0, 0, 0, 502.475, 170.482, 0, 0, 0, 0, 560.932, 103.675, 0, 0, 0, 0, 601.016, 66.9309, 0, 0, 0, 0, 634.419, 50.2291, 0, 0, 0, 0, 664.483, 45.2185, 0, 0, 0, 0, 697.886, 56.9098, 0, 0, 0, 0, 722.939, 95.324, 0, 0, 0, 0, 706.237, 150.44, 0, 0, 0, 0, 552.581, 297.416, 0, 0, 0, 0, 524.188, 327.479, 0, 0, 0, 0, 515.837, 347.521, 0, 0, 0, 0, 550.91, 359.213, 0, 0, 0, 0, 599.346, 352.532, 0, 0, 0, 0, 664.483, 312.448, 0, 0, 0, 0, 691.206, 310.777, 0, 0, 0, 0, 692.876, 340.841, 0, 0, 0, 0, 687.865, 382.595, 0, 0, 0, 0, 731.29, 449.402, 0, 0, 0, 0, 721.269, 486.146, 0, 0, 0, 0, 689.536, 494.497, 0, 0, 0, 0, 604.356, 494.497, 0, 0, 0, 0, 544.23, 479.466, 0, 0, 0, 0, 487.444, 466.104, 0, 0, 0, 0, 435.668, 462.764, 0, 0, 0, 0, 382.222, 479.466, 0, 0, 0, 0, 323.766, 479.466, 0, 0, 0, 0, 253.618, 471.115, 0, 0, 0, 0, 203.513, 487.817, 0, 0, 0, 0, 160.088, 496.168, 0, 0, 0, 0, 86.6, 519.55, 0, 0, 0, 0, 49.9337, 540.635 )
+}
+
+[node name="Level" type="Node2D"]
+
+script = ExtResource( 1 )
+
+[node name="Map" type="Sprite" parent="." index="0"]
+
+position = Vector2( 400, 300 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Village" type="Sprite" parent="." index="1"]
+
+position = Vector2( 42.1842, 560.501 )
+texture = ExtResource( 3 )
+
+[node name="MobPath" type="Path2D" parent="." index="2"]
+
+self_modulate = Color( 0.5, 0.6, 1, 0.7 )
+curve = SubResource( 1 )
+
+[node name="GameManager" type="Node" parent="." index="3" groups=[
+"game_manager",
+]]
+
+script = ExtResource( 4 )
+
+[node name="Plane" parent="." index="4" instance=ExtResource( 5 )]
+
+position = Vector2( 387.622, 558.526 )
+
+[node name="Cannons" type="Node2D" parent="." index="5"]
+
+

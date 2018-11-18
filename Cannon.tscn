@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Cannon.gd" type="Script" id=1]
+[ext_resource path="res://images/canon.png" type="Texture" id=2]
+
+[node name="Cannon" type="Node2D"]
+
+rotation = 0.785398
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+fireInterval = 1.0
+rotationInterval = 1.0
+bulletSpeed = 40.0
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+
+[node name="Spawn" type="Node2D" parent="." index="1"]
+
+position = Vector2( 0.131214, -26.112 )
+scale = Vector2( -0.0210219, 0.0457948 )
+_sections_unfolded = [ "Transform" ]
+
+
