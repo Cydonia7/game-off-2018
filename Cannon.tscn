@@ -1,13 +1,27 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Cannon.gd" type="Script" id=1]
 [ext_resource path="res://images/canon.png" type="Texture" id=2]
 
-[node name="Cannon" type="Node2D"]
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 25.1567
+
+[node name="Cannon" type="Area2D"]
 
 rotation = 0.785398
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 2
+collision_mask = 2
+audio_bus_override = false
+audio_bus_name = "Master"
 script = ExtResource( 1 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Collision", "Transform" ]
 fireInterval = 1.0
 rotationInterval = 1.0
 bulletSpeed = 40.0
@@ -19,7 +33,13 @@ texture = ExtResource( 2 )
 [node name="Spawn" type="Node2D" parent="." index="1"]
 
 position = Vector2( 0.131214, -26.112 )
-scale = Vector2( -0.0210219, 0.0457948 )
+rotation = -3.14159
+scale = Vector2( 0.0210219, -0.0457948 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
+
+position = Vector2( -0.780962, 0.557833 )
+shape = SubResource( 1 )
 
 
