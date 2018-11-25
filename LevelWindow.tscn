@@ -10,7 +10,7 @@
 custom_solver_bias = 0.0
 radius = 25.1116
 
-[node name="LevelWindow" type="Node2D" index="0"]
+[node name="LevelWindow" type="Node2D"]
 
 [node name="Level" parent="." index="0" instance=ExtResource( 1 )]
 
@@ -22,6 +22,7 @@ position = Vector2( -5.74399, -4.28711 )
 "cannon_spawner",
 ]]
 
+editor/display_folded = true
 script = ExtResource( 3 )
 cannonScene = null
 cannonTexture = null
