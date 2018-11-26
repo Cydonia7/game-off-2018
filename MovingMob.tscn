@@ -10,7 +10,7 @@ custom_solver_bias = 0.0
 radius = 12.783
 height = 9.45235
 
-[node name="MovingMob" type="PathFollow2D" index="0"]
+[node name="MovingMob" type="PathFollow2D"]
 
 offset = 0.0
 h_offset = 0.0

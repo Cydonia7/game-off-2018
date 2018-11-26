@@ -24,11 +24,9 @@ func _process(delta):
 
 	time += delta
 	
-	if time > fireInterval:
-		time -= fireInterval
-		
-		if Input.is_key_pressed(KEY_SPACE):
-			fire_all()
+	if Input.is_key_pressed(KEY_SPACE) && time > fireInterval:
+		fire_all()
+		time = 0
 
 func fire_all():
 	var missiles = get_number_of_missiles()
