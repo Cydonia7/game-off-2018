@@ -10,6 +10,8 @@ func _enter_tree():
 	EventListener.add_listener(self, ['money_changed', 'upgrade_bought', 'wave_started', 'wave_finished'])
 	if upgrade == 'three_missiles':
 		dependencies = ['two_missiles']
+	if upgrade == 'fastest_missiles':
+		dependencies = ['faster_missiles']
 
 func on_money_changed(coins):
 	check_availability()

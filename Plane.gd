@@ -1,8 +1,5 @@
 extends Sprite
 
-export var fireInterval = 0.5
-export var bulletSpeed = 300.0
-
 var screensize
 var time = 0.0
 var speed = 300
@@ -24,7 +21,7 @@ func _process(delta):
 
 	time += delta
 	
-	if Input.is_key_pressed(KEY_SPACE) && time > fireInterval:
+	if Input.is_key_pressed(KEY_SPACE) && time > get_fire_interval():
 		fire_all()
 		time = 0
 
@@ -46,6 +43,15 @@ func get_number_of_missiles():
 	
 	return 1
 
+func get_fire_interval():
+	if get_game_manager().has_upgrade('fastest_missiles'):
+		return 0.2
+	
+	if get_game_manager().has_upgrade('faster_missiles'):
+		return 0.35
+	
+	return 0.5
+
 func fire(spawn):
 	if spawn == 'left':
 		spawn = $LeftSpawn
@@ -58,7 +64,7 @@ func fire(spawn):
 	bullet.set_position(spawn.get_global_transform_with_canvas().get_origin())
 	bullet.set_rotation(spawn.get_global_transform_with_canvas().get_rotation())
 	bullet.life = 10.0
-	bullet.velocity = Vector2(0, -1) * bulletSpeed
+	bullet.velocity = Vector2(0, -1) * 300.0
 	get_parent().add_child(bullet)
 
 func get_game_manager():
